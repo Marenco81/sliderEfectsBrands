@@ -11,12 +11,12 @@ body {
     font-family: "Poppins", sans-serif;
     color: #fff;
     /* font-family: "League Gothic", sans-serif; */
-    & * {
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-    & header{
+    header{
         position: fixed;
         z-index: 10;
         width: min(1200px, 90vw);
@@ -30,7 +30,7 @@ body {
     }
     .logo {
         img {
-            width: 50px;
+            width: 90px;
         }
     }
     nav {
