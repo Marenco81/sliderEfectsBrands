@@ -10,7 +10,6 @@ body {
     background-color: #232442;
     font-family: "Poppins", sans-serif;
     color: #fff;
-    /* font-family: "League Gothic", sans-serif; */
     * {
         margin: 0;
         padding: 0;
@@ -37,6 +36,180 @@ body {
         ul{
             display: grid;
             grid-template-columns: repeat(3, var(--w-colum)) ;
+        }
+    }
+    .carousel {
+        background-image: radial-gradient(#2b2e4f, #111126);
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+        .list {
+            width: min(1200px, 90vw);
+            margin: auto;
+            height: 100%;
+            position: relative;
+            .item{
+                position: absolute;
+                inset: 0;
+                figure{
+                    position: absolute;
+                    width: 70%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    img{
+                        width: 100%;
+                        transform: rotate(-30deg);
+                    }
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        background-color: #0b0b0b;
+                        width: 100%;
+                        height: 100px;
+                        top: 150%;
+                        left: 50px;
+                        border-radius: 50%;
+                        filter: blur(50px);
+                    }
+                }
+                .content{
+                    position: absolute;
+                    z-index: 20;
+                    width: 70%;
+                    height: 100%;
+                    right: var(--w-colum);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: end;
+                    gap: 20px;
+                    .category{
+                        font-weight: 500;
+                    }
+                    h2{
+                        font-family: "League Gothic", sans-serif;
+                        font-size: 11em;
+                        line-height: 1em;
+                    }
+                    .description{
+                        color: #fff9;
+                        max-width: 400px;
+                        font-size: small;
+                        text-align: right;
+                    }
+                }
+                .more{
+                    display: grid;
+                    grid-template-columns: repeat(2, 128px);
+                    gap: 20px;
+                    grid-template-rows: 35px;
+                    button{
+                        border-radius: 30px;
+                        font-family: "League Gothic", sans-serif;
+                        font-weight: 200;
+                        text-transform: uppercase;
+                        color: #fff;
+                        background-color: transparent;
+                        border: none;
+                        transition: 0.5s;
+                        &:nth-child(1){
+                            background-image: linear-gradient(to right, #81baa0, #46a39c);
+                        }
+                        &:nth-child(2){
+                            border: 2px solid transparent;
+                            background: linear-gradient(#242745, #242745) padding-box, linear-gradient(to right, #81baa0, #46a39c) border-box;
+                        }
+                        &:hover{
+                            scale: 1.1;
+                            background-image: linear-gradient(to right, #b85f0d, #f17006);
+                            font-size: larger;
+                        }
+                    }
+                }
+            }
+            &::after{
+            content: '';
+            position: absolute;
+            right: var(--w-colum);
+            width: var(--w-colum);
+            height: 100%;
+            border-left: 1px solid #324073;
+            border-right: 1px solid #324073;
+            pointer-events: none;
+            }
+            &::before{
+                content: '';
+                position: absolute;
+                height: var(--w-colum);
+                width: 100%;
+                border-top: 1px solid #324073;
+                border-bottom: 1px solid #324073;
+                top: 52%;
+                pointer-events: none;
+            }
+        }
+        .arrows{
+            width: min(1200px, 90vw);
+            position: absolute;
+            top: 52%;
+            left: 50%;
+            transform: translate(-50%, -25px);
+            pointer-events: none;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            button{
+                width: 50px;
+                height: 50px;
+                break-before: 50%;
+                border: 1px solid #659cdf55;
+                background-color: #232442;
+                color: #fff7;
+                border-radius: 50%;
+                font-family: monospace;
+                font-size: large;
+                pointer-events: auto;
+                transition: 0.5s;
+                &:hover{
+                    border: 1px solid #659cdf;
+                    color: #fff;
+                    scale: 1.1;
+                }
+            }
+        }
+        .indicators{
+            position: absolute;
+            top: 52%;
+            height: var(--w-colum);
+            width: min(1200px, 90vw);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            pointer-events: none;
+            justify-content: end;
+            gap: 10px;
+            .numbers{
+                font-family: "League Gothic", sans-serif;
+                font-size: 7vw;
+            }
+            ul{
+                display: flex;
+                gap: 10px;
+                li{
+                    width: 50px;
+                    height: 5px;
+                    background-color: #659cdf;
+                    border-radius: 10px;
+                    list-style-type: none;
+                    pointer-events: auto;
+                    cursor: pointer;
+                    transition: 0.5s;
+                    &.active{
+                        background-color: orangered;
+                    }
+                }
+            }
         }
     }
 }
