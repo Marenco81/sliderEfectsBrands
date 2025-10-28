@@ -213,3 +213,58 @@ body {
         }
     }
 }
+
+
+/* Animation */
+
+body{
+    & .carousel{
+        --calculation: 1;
+        & .list{
+            & .item{
+                transition: 0.5;
+                transform: translateX(calc(100vw * var(--calculation)));
+                opacity: 0;
+                & figure{
+                    & img{
+                        transform: rotate(0deg);
+                        transition: 0.5s;
+                        transition-delay: 0.3s;
+                    }
+                }
+                & .content{
+                    & .category, h2, .description, .more{
+                        transform: translateX(calc(200px * var(--calculation)));
+                        transition: 0.7s;
+                        opacity: 0;
+                        transition-delay: 0.3s;
+                    }
+                    & h2{
+                        transition-delay: 0.5s;
+                    }
+                    & .description{
+                        transition-delay: 0.7s;
+                    }
+                    & .more{
+                        transition-delay: 0.9s;
+                    }
+                }
+            }
+            & .active{
+                    opacity: 1;
+                    transform: translateX(0);
+                    & figure{
+                        & img{
+                            transform: rotate(-20deg);
+                        }
+                    }
+                    & .content{
+                        & .category, h2, .description, .more{
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+                }
+        }
+    }
+}
