@@ -7,6 +7,15 @@ let dots = indicator.querySelectorAll('ul li');
 let active = 0;
 let firstPosition = 0;
 let lastPosition = items.length - 1;
+let autoPlay;
+
+const startAutoPlay = () => {
+    clearInterval(autoPlay);
+    autoPlay = setInterval(() => {
+        nextBtn.onclick();
+    }, 5000);
+}
+startAutoPlay();
 
 const setSlider = () => {
     let itemActiveOld = carousel.querySelector('.list .item.active');
@@ -21,6 +30,7 @@ const setSlider = () => {
     }
     dots[active].classList.add('active');
     indicator.querySelector('.numbers').innerText = '0' + (active + 1);
+    startAutoPlay();
 }
 setSlider();
 nextBtn.onclick = () =>{
